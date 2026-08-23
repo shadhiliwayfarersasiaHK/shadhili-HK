@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Gathering of Prophetic Light - Sacred Text, Booklet & Teaching Studio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Scheherazade+New:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for UI icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            950: '#041d15',
+                            900: '#0a3b2c',
+                            800: '#11543f',
+                            700: '#186e54',
+                        },
+                        gold: {
+                            300: '#edd298',
+                            400: '#e5c378',
+                            500: '#c5a059',
+                            600: '#a6823c',
+                            700: '#856427',
+                        },
+                        parchment: {
+                            50: '#ffffff',
+                            100: '#fdfbf7',
+                            200: '#f7f2e7',
+                            300: '#eee5d3',
+                        }
+                    },
+                    fontFamily: {
+                        arabic: ['Amiri', 'Scheherazade New', 'serif'],
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        header: ['Cinzel', 'Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base typography & smooth rendering */
+        body {
+            background-color: #121824;
+            font-family: 'Inter', sans-serif;
+            color: #2a2a2a;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .font-arabic {
+            font-family: 'Amiri', 'Scheherazade New', serif;
+            line-height: 2.2;
+            direction: rtl;
+        }
+
+        /* Editable highlight styling */
+        [contenteditable="true"] {
+            outline: 1px dashed transparent;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            padding: 1px 4px;
+        }
+
+        body.edit-mode [contenteditable="true"]:hover {
+            outline: 1px dashed rgba(197, 160, 89, 0.6);
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+
+        body.edit-mode [contenteditable="true"]:focus {
+            outline: 2px solid #c5a059;
+            background-color: rgba(197, 160, 89, 0.1);
+        }
+
+        /* Decorative Islamic Border Frame */
+        .islamic-border {
+            position: relative;
+            border: 2px solid #c5a059;
+            box-shadow: inset 0 0 0 4px #0a3b2c, inset 0 0 0 6px #c5a059;
+        }
+
+        .islamic-corner-decor {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-color: #c5a059;
+            pointer-events: none;
+        }
+
+        .corner-tl { top: 8px; left: 8px; border-top: 2px solid; border-left: 2px solid; }
+        .corner-tr { top: 8px; right: 8px; border-top: 2px solid; border-right: 2px solid; }
+        .corner-bl { bottom: 8px; left: 8px; border-bottom: 2px solid; border-left: 2px solid; }
+        .corner-br { bottom: 8px; right: 8px; border-bottom: 2px solid; border-right: 2px solid; }
+
+        /* Document Page simulation for Web Preview */
+        .page-sheet {
+            background-color: #fdfbf7;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto 2rem auto;
+            padding: 18mm 16mm;
+            position: relative;
+            box-sizing: border-box;
+            page-break-after: always;
+        }
+
+        /* PRINT STYLING SPECIFIC FOR PDF EXPORT */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+
+            .page-sheet {
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 100% !important;
+                min-height: 100vh !important;
+                padding: 15mm 12mm !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                background-color: #fdfbf7 !important;
+            }
+
+            [contenteditable="true"] {
+                outline: none !important;
+                background: transparent !important;
+            }
+        }
+
+        /* Color Theme Variations */
+        .theme-emerald {
+            --primary-bg: #fdfbf7;
+            --accent-color: #0a3b2c;
+            --gold-color: #c5a059;
+            --text-main: #2a2a2a;
+        }
+
+        .theme-obsidian {
+            --primary-bg: #111827;
+            --accent-color: #edd298;
+            --gold-color: #c5a059;
+            --text-main: #f3f4f6;
+        }
+
+        .theme-parchment {
+            --primary-bg: #f7f2e7;
+            --accent-color: #5c1d18;
+            --gold-color: #a6823c;
+            --text-main: #1f1917;
+        }
+
+        .verse-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="edit-mode theme-emerald text-gray-900 antialiased selection:bg-gold-500 selection:text-white">
+
+    <!-- TOP TOOLBAR (Hidden during printing) -->
+    <header class="no-print sticky top-0 z-50 bg-gray-900/95 backdrop-blur border-b border-gold-500/30 px-4 py-3 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Left Brand & Status -->
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-full bg-emerald-900 border border-gold-500 flex items-center justify-center text-gold-400 font-bold text-lg shadow">
+                    🕌
+                </div>
+                <div>
+                    <h1 class="text-white font-header text-sm sm:text-base font-semibold tracking-wide">
+                        Prophetic Light Material Studio
+                    </h1>
+                    <p class="text-xs text-gold-400 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span>
+                        Authorized Shadhili HK Document Builder
+                    </p>
+                </div>
+            </div>
+
+            <!-- View/Document Tab Switcher -->
+            <div class="flex items-center bg-gray-800 p-1 rounded-lg border border-gray-700 text-xs sm:text-sm flex-wrap gap-1">
+                <button onclick="switchTab('wird')" id="tab-wird" class="px-3 py-1.5 rounded-md font-medium text-white bg-emerald-800 border border-gold-500/50 shadow transition">
+                    <i class="fa-solid fa-book-quran mr-1.5 text-gold-400"></i>Shadhili Booklet
+                </button>
+                <button onclick="switchTab('silsila')" id="tab-silsila" class="px-3 py-1.5 rounded-md font-medium text-gray-300 hover:text-white transition">
+                    <i class="fa-solid fa-diagram-project mr-1.5 text-gold-400"></i>Silsila (Golden Chain)
+                </button>
+                <button onclick="switchTab('poem')" id="tab-poem" class="px-3 py-1.5 rounded-md font-medium text-gray-300 hover:text-white transition">
+                    <i class="fa-solid fa-feather-pointed mr-1.5 text-gold-400"></i>Qasidas & Sacred Odes
+                </button>
+                <button onclick="switchTab('teachings')" id="tab-teachings" class="px-3 py-1.5 rounded-md font-medium text-gray-300 hover:text-white transition">
+                    <i class="fa-solid fa-video mr-1.5 text-gold-400"></i>Teachings of Sayyiduna Shaykh
+                </button>
+            </div>
+
+            <!-- Editor Controls -->
+            <div class="flex items-center flex-wrap gap-2 text-xs">
+                
+                <!-- Toggle Edit Mode -->
+                <button onclick="toggleEditMode()" id="edit-toggle-btn" class="px-3 py-1.5 bg-gold-600 hover:bg-gold-500 text-gray-950 font-semibold rounded shadow transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span id="edit-mode-text">Editing Active</span>
+                </button>
+
+                <!-- Arabic Font Scaling -->
+                <div class="flex items-center bg-gray-800 px-2 py-1 rounded border border-gray-700 text-gray-300 gap-1.5">
+                    <span class="text-gold-400 font-arabic font-bold">ع</span>
+                    <input type="range" id="arabic-size" min="20" max="42" value="28" oninput="changeArabicSize(this.value)" class="w-16 accent-gold-500 cursor-pointer">
+                    <span id="arabic-size-label" class="text-gray-400 text-[10px]">28px</span>
+                </div>
+
+                <!-- Theme Toggle -->
+                <select onchange="changeTheme(this.value)" class="bg-gray-800 text-gray-200 border border-gray-700 rounded px-2 py-1 focus:outline-none focus:border-gold-500 cursor-pointer">
+                    <option value="theme-emerald">Emerald & Gold</option>
+                    <option value="theme-parchment">Warm Parchment</option>
+                    <option value="theme-obsidian">Midnight Dark</option>
+                </select>
+
+                <!-- Save / Print PDF -->
+                <button onclick="triggerPrint()" class="px-4 py-1.5 bg-emerald-700 hover:bg-emerald-600 text-white font-semibold rounded shadow transition flex items-center gap-1.5 border border-gold-500/40">
+                    <i class="fa-solid fa-file-pdf text-gold-400"></i>
+                    <span>Export / Print PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notice Bar -->
+    <div class="no-print bg-emerald-950/90 border-b border-gold-500/20 text-gold-300 text-xs py-1.5 px-4 text-center flex items-center justify-center gap-2">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>Click on any text directly to edit. Full 38-couplet Qasidas, Silsila Chain, and Salat al-Yaqoutiya loaded. Press <strong>Export / Print PDF</strong> when ready.</span>
+    </div>
+
+    <!-- MAIN WORKSPACE CONTAINERS -->
+    <main class="py-8 px-2 sm:px-4 flex flex-col items-center justify-center min-h-screen">
+
+        <!-- ========================================================================= -->
+        <!-- TAB 1: SHADHILI BOOKLET (A5 / A4 Printable Pages)                         -->
+        <!-- ========================================================================= -->
+        <div id="container-wird" class="w-full max-w-[210mm] space-y-8">
+
+            <!-- PAGE 1: COVER PAGE -->
+            <section class="page-sheet islamic-border flex flex-col justify-between text-center relative">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <div class="pt-6">
+                    <!-- Bismillah -->
+                    <div class="font-arabic text-3xl sm:text-4xl text-emerald-900 mb-6 font-bold" contenteditable="true">
+                        بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+                    </div>
+                    <div class="w-24 h-0.5 bg-gold-500 mx-auto mb-8"></div>
+
+                    <!-- Main Title -->
+                    <h2 class="font-header text-2xl sm:text-4xl font-bold tracking-wider text-emerald-900 uppercase mb-3" contenteditable="true">
+                        A Gathering of Prophetic Light
+                    </h2>
+                    <h3 class="font-serif italic text-lg sm:text-xl text-gold-600 mb-6" contenteditable="true">
+                        Hadith & Shadhili Dhikr in Hong Kong
+                    </h3>
+
+                    <div class="inline-block border-y-2 border-gold-500/60 py-3 px-8 my-4">
+                        <p class="font-header font-semibold text-base sm:text-lg text-emerald-950 tracking-widest uppercase" contenteditable="true">
+                            THE WIRD AL-`ĀMM
+                        </p>
+                        <p class="font-serif italic text-sm text-gray-700" contenteditable="true">
+                            (The General Litany of the Shadhili Golden Chain)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Middle Ornament -->
+                <div class="my-8 flex justify-center items-center gap-3 text-gold-500">
+                    <span class="w-12 h-px bg-gold-400"></span>
+                    <span class="text-xl">۞</span>
+                    <span class="w-12 h-px bg-gold-400"></span>
+                </div>
+
+                <!-- Authorization Footer Block -->
+                <div class="pb-6 px-4">
+                    <div class="bg-emerald-900/5 border border-gold-500/30 rounded-lg p-5">
+                        <p class="text-xs uppercase tracking-widest text-gold-700 font-semibold mb-2" contenteditable="true">
+                            Spiritual Authorization & Supervision (Idhn)
+                        </p>
+                        <p class="font-serif text-base sm:text-lg font-bold text-emerald-950 mb-1" contenteditable="true">
+                            HIS EMINENCE SHAYKH MUHAMMAD AL-YAQOUBI
+                        </p>
+                        <p class="font-serif text-xs sm:text-sm text-gray-700 italic" contenteditable="true">
+                            Issued through the Office of the Appointed Muqaddam of Hong Kong
+                        </p>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mt-4 tracking-widest uppercase" contenteditable="true">
+                        Hong Kong Special Administrative Region • East Asia
+                    </p>
+                </div>
+            </section>
+
+            <!-- PAGE 2: WELCOME, INTRODUCTION, SILSILA & ETIQUETTE (ADAB) -->
+            <section class="page-sheet islamic-border flex flex-col justify-between relative">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <div>
+                    <!-- Header -->
+                    <div class="border-b border-gold-500/40 pb-3 mb-4 text-center">
+                        <h3 class="font-header text-xl font-bold text-emerald-900 tracking-wide uppercase" contenteditable="true">
+                            Welcome & Introduction to the Circle
+                        </h3>
+                        <p class="font-serif italic text-xs text-gold-600" contenteditable="true">The Golden Chain (Silsila) & Ādāb al-Dhikr</p>
+                    </div>
+
+                    <!-- Intro & Welcome Section -->
+                    <div class="space-y-3.5 text-xs sm:text-sm leading-relaxed text-gray-800 font-serif">
+                        <div class="bg-emerald-900/5 p-3.5 rounded border-l-2 border-gold-500">
+                            <h4 class="font-header font-bold text-emerald-900 text-xs sm:text-sm uppercase mb-1" contenteditable="true">
+                                Welcome to Newcomers
+                            </h4>
+                            <p contenteditable="true">
+                                Welcome to this gathering of light, knowledge, and spiritual purification. You are sitting in a circle dedicated to the remembrance of Allah and the study of His Prophet’s ﷺ words. This gathering is rooted in <strong>The Shadhili Way</strong>, one of the most respected and foundational paths of spiritual development (<em>Tasawwuf</em>) in the Islamic world. The ultimate goal of this path is to polish the mirror of the heart, allowing it to fully absorb the light of faith (<em>Iman</em>) and spiritual excellence (<em>Ihsan</em>).
+                            </p>
+                        </div>
+
+                        <div class="bg-gold-500/10 p-3.5 rounded border-r-2 border-gold-600">
+                            <h4 class="font-header font-bold text-emerald-950 text-xs sm:text-sm uppercase mb-1" contenteditable="true">
+                                The Golden Chain (Silsila) & Spiritual Lineage
+                            </h4>
+                            <p contenteditable="true" class="mb-2">
+                                In our tradition, spiritual guidance is not taken from books alone; it is passed from heart to heart through an unbroken, living chain of authorized teachers stretching back over a thousand years. This is known as the <strong>Golden Chain</strong>. This circle is established under the direct authorization and spiritual supervision of <strong>His Eminence, Shaykh Muhammad al-Yaqoubi</strong> (may Allah preserve him).
+                            </p>
+                            <p contenteditable="true">
+                                Shaykh Muhammad al-Yaqoubi is a world-renowned jurist and master of Hadith who traces his lineage directly back to the Prophet Muhammad ﷺ. He inherited the leadership of this spiritual path through his father, the great scholar Shaykh Ibrahim al-Yaqoubi, through a lineage of elite masters connecting directly to Imam Abul Hasan al-Shadhili (the founder of the path), and ultimately to the Prophet Muhammad ﷺ.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-header font-bold text-emerald-900 text-xs uppercase mb-1.5 border-b border-gray-200 pb-1" contenteditable="true">
+                                Etiquette of the Circle (Ādāb al-Dhikr)
+                            </h4>
+                            <ul class="space-y-1.5 pl-1 text-xs">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-gold-600 font-bold">1.</span>
+                                    <div>
+                                        <strong class="text-emerald-950 font-semibold" contenteditable="true">Pure Intention (Ikhlāṣ):</strong>
+                                        <span contenteditable="true">Enter the circle solely seeking the pleasure of Allah ﷻ, affection for His Messenger ﷺ, and purification of the heart.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-gold-600 font-bold">2.</span>
+                                    <div>
+                                        <strong class="text-emerald-950 font-semibold" contenteditable="true">Presence of Heart (Huḍūr):</strong>
+                                        <span contenteditable="true">Sit in ritual purity (Wuḍū'), face the Qiblah where possible, and turn your inner focus entirely away from worldly distractions.</span>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-gold-600 font-bold">3.</span>
+                                    <div>
+                                        <strong class="text-emerald-950 font-semibold" contenteditable="true">Vocal Harmony (Ittihād al-Ṣawt):</strong>
+                                        <span contenteditable="true">Maintain a gentle, measured, and rhythmic collective speed. Blend your voice seamlessly with the Muqaddam without overriding the circle.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-gold-500/30 text-center text-[11px] text-gray-600 font-serif italic" contenteditable="true">
+                    "Whosoever remembers Allah in a gathering, Allah remembers them in a gathering far superior."
+                </div>
+            </section>
+
+            <!-- PAGE 3 & 4: THE WIRD AL-`ĀMM -->
+            <section class="page-sheet islamic-border relative">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <!-- Header -->
+                <div class="border-b border-gold-500/40 pb-3 mb-6 text-center">
+                    <h3 class="font-header text-xl font-bold text-emerald-900 tracking-wide uppercase" contenteditable="true">
+                        The Litanies of the Wird Al-`Āmm
+                    </h3>
+                    <p class="font-serif italic text-xs text-gold-600" contenteditable="true">
+                        Strict 3-Tier Authenticated Text Layout
+                    </p>
+                </div>
+
+                <!-- Litany Steps Container -->
+                <div id="wird-steps-list" class="space-y-6">
+
+                    <!-- STEP 1 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 1
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE ONCE [ 1x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            أَعُوذُ بِاللهِ مِنَ الشَّيْطَانِ الرَّجِيمِ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            A-`ŪDHU BILLĀHI MINASH SHAYṬĀ-NIR RAJĪM
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            I seek refuge in Allah from Shaytan, the rejected one.
+                        </div>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 2
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE 3 TIMES [ 3x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            BIS-MIL-LĀHIR RAḤMĀ-NIR RAḤĪM
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            In the Name of Allah, Most Gracious, Most Merciful.
+                        </div>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 3
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE ONCE [ 1x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            وَمَا تُقَدِّمُوا لِأَنْفُسِكُمْ مِنْ خَيْرٍ تَجِدُوهُ عِنْدَ اللهِ هُوَ خَيْرًا وَأَعْظَمَ أَجْرًا وَاسْتَغْفِرُوا اللهَ إِنَّ اللهَ غَفُورٌ رَحِيمٌ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            WA MĀ TUQAD-DIMŪ LI-ANFUSIKUM MIN KHAYRIN TAJIDŪHU `INDAL-LĀHI HUWA KHAYRAN WA A`A-ŻAMA AJRĀ WAS-TAGHFIRUL-LĀH INNAL-LĀHA GHAFŪRUR-RAḤĪM
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            And whatever good you send forth for your souls, you will find it with Allah—it will be better and greater in reward. And seek forgiveness of Allah; indeed, Allah is Forgiving and Merciful.
+                        </div>
+                    </div>
+
+                    <!-- STEP 4 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 4
+                            </span>
+                            <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-300" contenteditable="true">
+                                RECITE 99 TIMES [ 99x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            أَسْتَغْفِرُ اللهَ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            AS-TAGHFIRUL-LĀH
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            I seek the forgiveness of Allah.
+                        </div>
+                    </div>
+
+                    <!-- STEP 5 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 5
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE ONCE [ 1x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            أَسْتَغْفِرُ اللهَ الْعَظِيمَ الَّذِي لَآ إِلَهَ إِلَّا هُوَ الْحَيَّ الْقَيُّومَ وَأَتُوبُ إِلَيْهِ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            AS-TAGHFIRUL-LĀHAL `AŻĪMAL-LADHĪ LĀ ILĀHA ILLĀ HUWAL-ḤAYYAL-QAY-YŪMA WA ATŪBU ILAYH
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            I seek forgiveness from Allah the Supreme, besides Whom there is no deity, the Ever-Living, the Self-Subsisting, and unto Him I turn in repentance.
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="page-sheet islamic-border relative flex flex-col justify-between">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <div id="wird-steps-list-part2" class="space-y-6 pt-2">
+
+                    <!-- STEP 6 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 6
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE ONCE [ 1x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            إِنَّ اللهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            IN-NALLĀHA WA MALĀ-IKATAHU YUṢALLŪNA `ALAN NABIY, YĀ AY-YUHAL-LADHĪNA ĀMANŪ ṢALLŪ `ALAYHI WA SAL-LIMŪ TASLĪMĀ
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            Indeed, Allah and His angels send blessings upon the Prophet. O you who believe, send blessings upon him and salute him with a worthy salutation of peace.
+                        </div>
+                    </div>
+
+                    <!-- STEP 7 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 7
+                            </span>
+                            <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-300" contenteditable="true">
+                                RECITE 99 TIMES [ 99x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            اَللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ النَّبِيِّ الأُمِّيِّ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            ALLĀHUMMA ṢALLI `ALĀ SAYYIDINĀ MUḤAMMADIN `ABDIKA WA RASŪLIKAN-NABIY-YIL-UMMIY, WA `ALĀ ĀLIHI WA ṢAḤBIHĪ WA SALLIM
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            O Allah, send blessings and peace upon our Master Muhammad, Your servant and Your Messenger, the Unlettered Prophet, and upon his Family and Companions.
+                        </div>
+                    </div>
+
+                    <!-- STEP 8 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 8
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE ONCE [ 1x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            اَللهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ عَبْدِكَ وَرَسُولِكَ النَّبِيِّ الأُمِّيِّ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلِّمْ تَسْلِيمًا بِقَدْرِ عَظَمَةِ ذَاتِكَ فِي كُلِّ وَقْتٍ وَحِينٍ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            ALLĀHUMMA ṢALLI `ALĀ SAYYIDINĀ MUḤAMMADIN `ABDIKA WA RASŪLIKAN-NABIY-YIL-UMMIY, WA `ALĀ ĀLIHI WA ṢAḤBIHĪ WA SALLIM TASLĪMAN BI-QADRI `AŻAMATI DHĀTIKA FĪ KULLI WAQTIN WA ḤĪN
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            O Allah, send blessings and abundant peace upon our Master Muhammad, Your servant and Your Messenger, the Unlettered Prophet, and upon his Family and Companions, to the measure of the greatness of Your Essence, at every moment and all time.
+                        </div>
+                    </div>
+
+                    <!-- STEP 9 & 10 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 9 & 10
+                            </span>
+                            <span class="text-xs font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-300" contenteditable="true">
+                                INTRO ONCE • THEN 99 TIMES [ 99x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            فَاعْلَمْ أَنَّهُ لَا إِلَهَ إِلَّا اللهُ • لَا إِلَهَ إِلَّا اللهُ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            FA`LAM ANNAHU LĀ ILĀHA IL-LAL-LĀH • LĀ ILĀHA IL-LAL-LĀH
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            Know that there is no deity worthy of worship except Allah. There is no deity worthy of worship except Allah.
+                        </div>
+                    </div>
+
+                    <!-- STEP 11 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-5 relative group">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 11
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE ONCE [ 1x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                            لَا إِلَهَ إِلَّا اللهُ سَيِّدُنَا مُحَمَّدٌ رَّسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَعَلَى آلِهِ وَصَحْبِهِ وَسَلَّمْ
+                        </div>
+                        <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                            LĀ ILĀHA IL-LAL-LĀHU SAYYIDUNĀ MUḤAMMADUR RASŪLUL-LĀH, ṢALLAL-LĀHU `ALAYHI WA `ALĀ ĀLIHI WA ṢAḤBIHĪ WA SALLAM
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            There is no deity worthy of worship except Allah; our Master Muhammad is the Messenger of Allah. May Allah bless him and his Family and Companions and grant them peace.
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="page-sheet islamic-border relative flex flex-col justify-between">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <div class="space-y-6">
+                    <!-- STEP 12 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 12
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE 3 TIMES [ 3x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-xl" contenteditable="true" dir="rtl">
+                            بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ <br>
+                            قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            Surah Al-Ikhlas (3 times with Basmala)
+                        </div>
+                    </div>
+
+                    <!-- STEP 13 -->
+                    <div class="wird-step-card border-b border-gray-200 pb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                                STEP 13
+                            </span>
+                            <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                                RECITE ONCE [ 1x ]
+                            </span>
+                        </div>
+                        <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-xl" contenteditable="true" dir="rtl">
+                            بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ ﴿١﴾ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴿٢﴾ الرَّحْمَٰنِ الرَّحِيمِ ﴿٣﴾ مَالِكِ يَوْمِ الدِّينِ ﴿٤﴾ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴿٥﴾ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴿٦﴾ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴿٧﴾
+                        </div>
+                        <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                            Surah Al-Fatihah (1 time with Basmala)
+                        </div>
+                    </div>
+
+                    <!-- STEP 14: CLOSING DU'A -->
+                    <div class="bg-emerald-900/5 p-4 rounded border-2 border-gold-500/40">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-3 h-3 rounded-full bg-gold-500 inline-block"></span>
+                            <h4 class="font-header font-bold text-emerald-900 text-sm uppercase" contenteditable="true">
+                                STEP 14: Closing Supplication (Du'a) & Intentions
+                            </h4>
+                        </div>
+                        <p class="font-serif text-xs text-gray-700 leading-relaxed" contenteditable="true">
+                            Raise your hands in stillness. Offer sincere <em>Du'a</em> first for your own heart, parents, and family, followed by the entire <em>Ummah</em>. Make dedicated supplication for the elevated spiritual rank (<em>Maqam</em>) and health of our Murshid, <strong>His Eminence Shaykh Muhammad al-Yaqoubi</strong>, praying for the continuous unfolding of spiritual openings (<em>Waridat</em>) and guidance throughout Hong Kong and East Asia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center pt-6">
+                    <button onclick="addNewStep('wird-steps-list-part2')" class="no-print px-3 py-1.5 bg-gray-200 hover:bg-gold-500 hover:text-white text-gray-700 rounded text-xs font-medium transition">
+                        <i class="fa-solid fa-plus mr-1"></i>Add Custom Litany Step
+                    </button>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================================================= -->
+        <!-- NEW TAB: THE SILSILA OF THE SHADHILI GOLDEN CHAIN                          -->
+        <!-- ========================================================================= -->
+        <div id="container-silsila" class="w-full max-w-[210mm] hidden space-y-8">
+            <section class="page-sheet islamic-border relative">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <div class="text-center mb-8 border-b-2 border-gold-500/40 pb-6">
+                    <div class="font-arabic text-3xl font-bold text-emerald-900 mb-2" contenteditable="true" dir="rtl">
+                        السِّلْسِلَةُ الذَّهَبِيَّةُ لِلطَّرِيقَةِ الشَّاذِلِيَّةِ
+                    </div>
+                    <h2 class="font-header text-2xl font-bold text-emerald-950 uppercase tracking-widest mb-1" contenteditable="true">
+                        The Golden Chain of the Shadhili Path
+                    </h2>
+                    <p class="font-serif italic text-sm text-gold-600 mb-2" contenteditable="true">
+                        Unbroken Spiritual Lineage Transmitted Heart to Heart
+                    </p>
+                    <p class="text-xs text-gray-600 max-w-2xl mx-auto font-serif" contenteditable="true">
+                        The spiritual authority and light of the Shadhili Way descends through an continuous chain of authorized masters back to the Master of Creation, Sayyiduna Muhammad ﷺ.
+                    </p>
+                </div>
+
+                <!-- Silsila Tree Layout -->
+                <div class="space-y-3 font-serif">
+
+                    <!-- Root Node: Rasulullah -->
+                    <div class="bg-emerald-900 text-white p-3.5 rounded-lg border border-gold-500 text-center shadow">
+                        <div class="font-arabic text-xl font-bold text-gold-300" contenteditable="true">
+                            سَيِّدُنَا وَنَبِيُّنَا مُحَمَّدٌ رَسُولُ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ
+                        </div>
+                        <p class="text-xs text-gold-200 uppercase font-header font-semibold tracking-wider mt-1" contenteditable="true">
+                            1. Sayyiduna Muhammad Rasulullah ﷺ (The Fountainhead of Light)
+                        </p>
+                    </div>
+
+                    <div class="text-center text-gold-600 text-xs">│</div>
+
+                    <!-- Lineage Nodes -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">2.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Sayyiduna 'Ali ibn Abi Talib (رَضِيَ اللهُ عَنْهُ)</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">The Door to the City of Knowledge</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">عَلِيّ إِبْن أَبِي طَالِب</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">3.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Sayyiduna al-Hasan al-Basri (رَحِمَهُ الله)</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Master of Basra & Master of Ascetics</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">الحَسَن البَصْرِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">4.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Habib al-'Ajami</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Gnostic of Sincerity & Devotion</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">حَبِيب العَجَمِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">5.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Dawud al-Ta'i</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">The Pillar of Spiritual Conduct</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">دَاوُد الطَّائِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">6.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Ma'ruf al-Karkhi</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">The Sanctuary of Light in Baghdad</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">مَعْرُوف الكَرْخِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">7.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Sari al-Saqati</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Teacher of the Masters of Truth</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">سَرِي السَّقَطِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">8.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Imam al-Junayd al-Baghdadi</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Sayyid al-Ta'ifa (Leader of the Group)</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">الْجُنَيْد الْبَغْدَادِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">9.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Abu Bakr al-Shibli</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Ocean of Ecstatic Love</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">أَبُو بَكْر الشِّبْلِي</span>
+                        </div>
+
+                    </div>
+
+                    <!-- Highlight: Founder Pole Imam al-Shadhili -->
+                    <div class="my-4 bg-gold-500/10 border-2 border-gold-500 p-4 rounded-lg text-center shadow-md">
+                        <span class="text-[10px] font-header font-bold text-gold-700 uppercase tracking-widest bg-gold-100 px-3 py-1 rounded">
+                            FOUNDER OF THE PATH (THE GREAT POLE)
+                        </span>
+                        <h3 class="font-arabic text-2xl font-bold text-emerald-950 mt-2 mb-1" contenteditable="true">
+                            الإِمَامُ أَبُو الحَسَنِ الشَّاذِلِيُّ (قَدَّسَ اللهُ سِرَّهُ)
+                        </h3>
+                        <p class="font-serif font-bold text-emerald-900 text-sm" contenteditable="true">
+                            Imam Abul Hasan al-Shadhili (d. 656 AH / 1258 CE)
+                        </p>
+                        <p class="text-xs text-gray-700 italic mt-1" contenteditable="true">
+                            "My path is built upon five principles: Consciousness of Allah in secret and open, following the Sunnah in word and deed, indifference to the approval or rejection of people, contentment with Allah in scarcity and abundance, and returning to Allah in joy and sorrow."
+                        </p>
+                    </div>
+
+                    <!-- Modern Transmitters Down to Shaykh Yaqoubi -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">11.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Abul 'Abbas al-Mursi</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Successor to Imam al-Shadhili</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">أَبُو العَبَّاس المُرْسِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">12.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Imam Ibn 'Ata'illah al-Iskandari</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Author of the Legendary 'Hikam'</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">ابْن عَطَاءِ اللهِ</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">18.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Imam Muhammad ibn 'Isa al-Jazuli</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Author of Dala'il al-Khayrat</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">مُحَمَّد ابْن عِيسَى الجَزُولِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">24.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Imam Mawlay al-'Arabi al-Darqawi</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Reviver of the Shadhili Path</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">العَرَبِي الدَّرْقَاوِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">30.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Isa al-Babi al-Halabi</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Grand Master of Damascus</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">عِيسَى البَابِي الحَلَبِي</span>
+                        </div>
+
+                        <div class="bg-white p-3 rounded border border-gold-500/30 shadow-sm flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-gold-600 font-bold">31.</span>
+                                <strong class="text-emerald-950 font-bold block" contenteditable="true">Shaykh Ibrahim al-Yaqoubi (رَحِمَهُ الله)</strong>
+                                <span class="text-gray-500 italic text-[11px]" contenteditable="true">Imam of the Umayyad Mosque</span>
+                            </div>
+                            <span class="font-arabic text-lg text-emerald-900 font-bold">إِبْرَاهِيم اليَعْقُوبِي</span>
+                        </div>
+
+                    </div>
+
+                    <div class="text-center text-gold-600 text-xs">│</div>
+
+                    <!-- Living Guide Node: Shaykh Muhammad al-Yaqoubi -->
+                    <div class="bg-emerald-900 text-white p-4 rounded-lg border-2 border-gold-500 text-center shadow-lg">
+                        <span class="text-[10px] font-header font-bold text-gold-300 uppercase tracking-widest bg-gold-900/60 px-3 py-0.5 rounded border border-gold-500/40">
+                            OUR LIVING GUIDE & MURSHID
+                        </span>
+                        <div class="font-arabic text-2xl font-bold text-gold-300 mt-2 mb-1" contenteditable="true">
+                            سَيِّدُنَا الشَّيْخُ مُحَمَّدٌ أَبُو الهُدَى اليَعْقُوبِيُّ (حَفِظَهُ اللهُ)
+                        </div>
+                        <h4 class="font-serif font-bold text-base text-white uppercase tracking-wide" contenteditable="true">
+                            HIS EMINENCE SHAYKH MUHAMMAD AL-YAQOUBI
+                        </h4>
+                        <p class="text-xs text-gold-200 italic mt-1" contenteditable="true">
+                            Grand Jurist, Master of Hadith, and Supreme Guide of the Shadhili Golden Chain
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================================================= -->
+        <!-- TAB 3: PROPHETIC ODE / QASIDA LAYOUT                                       -->
+        <!-- ========================================================================= -->
+        <div id="container-poem" class="w-full max-w-[210mm] hidden space-y-8">
+
+            <section class="page-sheet islamic-border relative">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <!-- Qasida Switcher Control Bar -->
+                <div class="no-print bg-emerald-900 p-3 rounded-lg border border-gold-500/40 mb-6 flex flex-wrap items-center justify-between gap-3 text-white">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-gold-400"></i>
+                        <span class="text-xs font-header uppercase tracking-wider font-semibold">Select Sacred Ode / Qasida:</span>
+                    </div>
+                    <select id="qasida-selector" onchange="loadQasidaContent(this.value)" class="bg-gray-800 text-gold-300 font-serif border border-gold-500/50 rounded px-3 py-1.5 text-xs focus:outline-none focus:border-gold-400 cursor-pointer">
+                        <option value="janin">جنين القلوب - Janin al-Qulub (Longing of Hearts - Full 38 Couplets)</option>
+                        <option value="shifa">شفاء القلوب - Shifa al-Qulub (Healing of Hearts)</option>
+                        <option value="yaqoutiya">الصلاة الياقوتية - As-Salat ul-Yaqoutiya (Imam al-Fasi)</option>
+                        <option value="madh_shadhili">في مدح إمام أبي الحسن الشاذلي - The Qutb of All Qutbs</option>
+                        <option value="ibrahim">في مدح الشيخ إبراهيم اليعقوبي - In Praise of Shaykh Ibrahim al-Yaqoubi</option>
+                        <option value="dirqawi">في مدح الإمام الدرقاوي - In Praise of Imam al-Dirqawi</option>
+                        <option value="anthem">إِنَّمَا المُؤْمِنُونَ إِخْوَةٌ - Brothers For All (The Anthem)</option>
+                        <option value="tamassak">تمسك بحب الشاذلية - Love the Shadhilis (Tamassak)</option>
+                        <option value="adab">قصيدة آداب الطريقة - Etiquettes of the Path</option>
+                    </select>
+                </div>
+
+                <!-- Poem Header Block -->
+                <div id="qasida-header-block" class="text-center mb-8 border-b-2 border-gold-500/40 pb-6">
+                    <div id="qasida-title-ar" class="font-arabic text-3xl font-bold text-emerald-900 mb-2" contenteditable="true" dir="rtl">
+                        جَنِينُ القُلُوبِ
+                    </div>
+                    <h2 id="qasida-title-en" class="font-header text-2xl font-bold text-emerald-950 uppercase tracking-widest mb-1" contenteditable="true">
+                        LONGING OF HEARTS
+                    </h2>
+                    <p id="qasida-subtitle" class="font-serif italic text-sm text-gold-600 mb-3" contenteditable="true">
+                        On the Noble Birthday Anniversary (Mawlid al-Nabi ﷺ)
+                    </p>
+                    <div id="qasida-author" class="inline-block bg-emerald-900 text-gold-300 font-serif text-xs px-4 py-1 rounded-full border border-gold-500/50" contenteditable="true">
+                        Composed by Sayyid Shaykh Muhammad al-Yaqoubi
+                    </div>
+                </div>
+
+                <!-- Verse Grid List Container -->
+                <div id="poem-verses-list" class="space-y-6">
+                    <!-- Dynamic Loading via script below -->
+                </div>
+
+                <!-- Add Verse Button -->
+                <div class="text-center pt-6">
+                    <button onclick="addPoemVerse()" class="no-print px-4 py-2 bg-emerald-800 hover:bg-emerald-700 text-white rounded text-xs font-semibold shadow transition inline-flex items-center gap-1.5">
+                        <i class="fa-solid fa-plus text-gold-400"></i>
+                        <span>Add New Qasida Couplet / Bayt</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- TAB 4: TEACHINGS FROM SAYYIDUNA SHAYKH                                    -->
+        <!-- ========================================================================= -->
+        <div id="container-teachings" class="w-full max-w-[210mm] hidden space-y-8">
+
+            <section class="page-sheet islamic-border relative">
+                <div class="islamic-corner-decor corner-tl"></div>
+                <div class="islamic-corner-decor corner-tr"></div>
+                <div class="islamic-corner-decor corner-bl"></div>
+                <div class="islamic-corner-decor corner-br"></div>
+
+                <!-- Header -->
+                <div class="text-center mb-8 border-b-2 border-gold-500/40 pb-6">
+                    <div class="font-arabic text-3xl font-bold text-emerald-900 mb-2" contenteditable="true" dir="rtl">
+                        جَوَاهِرُ الحِكَمِ وَالإِرْشَادِ
+                    </div>
+                    <h2 class="font-header text-2xl font-bold text-emerald-950 uppercase tracking-widest mb-1" contenteditable="true">
+                        Teachings of Sayyiduna Shaykh
+                    </h2>
+                    <p class="font-serif italic text-sm text-gold-600 mb-2" contenteditable="true">
+                        Short Video Wisdoms & Gems by His Eminence Shaykh Muhammad al-Yaqoubi
+                    </p>
+                    <p class="text-xs text-gray-600 max-w-xl mx-auto font-serif" contenteditable="true">
+                        Extracted core lessons, spiritual counsels, and videos for contemplation, study, and digital community sharing.
+                    </p>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="no-print flex flex-wrap justify-center gap-2 mb-6 text-xs">
+                    <button onclick="filterTeachings('all')" class="px-3 py-1 bg-emerald-800 text-white rounded border border-gold-500/40">All Teachings</button>
+                    <button onclick="filterTeachings('dhikr')" class="px-3 py-1 bg-gray-800 text-gray-300 hover:text-white rounded">Dhikr & Heart</button>
+                    <button onclick="filterTeachings('love')" class="px-3 py-1 bg-gray-800 text-gray-300 hover:text-white rounded">Love of Prophet ﷺ</button>
+                    <button onclick="filterTeachings('adab')" class="px-3 py-1 bg-gray-800 text-gray-300 hover:text-white rounded">Adab & Character</button>
+                    <button onclick="filterTeachings('repentance')" class="px-3 py-1 bg-gray-800 text-gray-300 hover:text-white rounded">Tawbah & Return</button>
+                </div>
+
+                <!-- Grid of Video Teaching Cards -->
+                <div id="teachings-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                    <!-- CARD 1 -->
+                    <div class="teaching-card bg-white p-4 rounded-lg border border-gold-500/30 shadow-sm flex flex-col justify-between" data-category="dhikr">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] uppercase font-header font-semibold text-gold-700 mb-2">
+                                <span class="bg-gold-100 px-2 py-0.5 rounded border border-gold-300">Teaching 1 • Dhikr & Heart</span>
+                                <a href="https://youtube.com/shorts/og5u2TYsYN0" target="_blank" class="text-emerald-800 hover:underline flex items-center gap-1">
+                                    <i class="fa-brands fa-youtube text-red-600"></i> Watch Short
+                                </a>
+                            </div>
+                            <h4 class="font-header font-bold text-emerald-950 text-base mb-1" contenteditable="true">
+                                The Secret of Polishing the Heart
+                            </h4>
+                            <p class="font-arabic text-lg text-emerald-900 font-bold mb-2 text-right" contenteditable="true" dir="rtl">
+                                « لِكُلِّ شَيْءٍ صِقَالَةٌ، وَصِقَالَةُ الْقُلُوبِ ذِكْرُ اللهِ »
+                            </p>
+                            <p class="font-serif text-xs text-gray-700 leading-relaxed mb-3" contenteditable="true">
+                                "For everything there is a polish, and the polish for human hearts is the continuous remembrance of Allah (Dhikrullah). When you sit in a circle of remembrance, you are cleansing the dust of the dunyā from your soul."
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-serif">
+                            <span>Key Takeaway: Daily Awrad & Huḍūr</span>
+                            <span class="text-emerald-800 font-semibold">Shaykh Muhammad al-Yaqoubi</span>
+                        </div>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="teaching-card bg-white p-4 rounded-lg border border-gold-500/30 shadow-sm flex flex-col justify-between" data-category="love">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] uppercase font-header font-semibold text-gold-700 mb-2">
+                                <span class="bg-gold-100 px-2 py-0.5 rounded border border-gold-300">Teaching 2 • Prophetic Love</span>
+                                <a href="https://youtube.com/shorts/6ij9UYF10DY" target="_blank" class="text-emerald-800 hover:underline flex items-center gap-1">
+                                    <i class="fa-brands fa-youtube text-red-600"></i> Watch Short
+                                </a>
+                            </div>
+                            <h4 class="font-header font-bold text-emerald-950 text-base mb-1" contenteditable="true">
+                                True Attachment to the Prophet ﷺ
+                            </h4>
+                            <p class="font-arabic text-lg text-emerald-900 font-bold mb-2 text-right" contenteditable="true" dir="rtl">
+                                « لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ »
+                            </p>
+                            <p class="font-serif text-xs text-gray-700 leading-relaxed mb-3" contenteditable="true">
+                                "Love of the Messenger of Allah ﷺ is not an option; it is the essence of Iman. True love manifests in sending abundant Salawat, emulating his sublime character, and serving His creation."
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-serif">
+                            <span>Key Takeaway: Abundant Salawat</span>
+                            <span class="text-emerald-800 font-semibold">Shaykh Muhammad al-Yaqoubi</span>
+                        </div>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="teaching-card bg-white p-4 rounded-lg border border-gold-500/30 shadow-sm flex flex-col justify-between" data-category="repentance">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] uppercase font-header font-semibold text-gold-700 mb-2">
+                                <span class="bg-gold-100 px-2 py-0.5 rounded border border-gold-300">Teaching 3 • Tawbah</span>
+                                <a href="https://youtube.com/shorts/xJc-_dwuYHg" target="_blank" class="text-emerald-800 hover:underline flex items-center gap-1">
+                                    <i class="fa-brands fa-youtube text-red-600"></i> Watch Short
+                                </a>
+                            </div>
+                            <h4 class="font-header font-bold text-emerald-950 text-base mb-1" contenteditable="true">
+                                Returning to Allah with Hope
+                            </h4>
+                            <p class="font-arabic text-lg text-emerald-900 font-bold mb-2 text-right" contenteditable="true" dir="rtl">
+                                « يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَى أَنْفُسِهِمْ لاَ تَقْنَطُوا »
+                            </p>
+                            <p class="font-serif text-xs text-gray-700 leading-relaxed mb-3" contenteditable="true">
+                                "Never lose hope in the mercy of Allah. Repentance (Tawbah) is a portal that is never closed. Every moment you turn back to Him, Allah turns to you with greater unconditional mercy."
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-serif">
+                            <span>Key Takeaway: Sincere Istighfar</span>
+                            <span class="text-emerald-800 font-semibold">Shaykh Muhammad al-Yaqoubi</span>
+                        </div>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="teaching-card bg-white p-4 rounded-lg border border-gold-500/30 shadow-sm flex flex-col justify-between" data-category="adab">
+                        <div>
+                            <div class="flex items-center justify-between text-[10px] uppercase font-header font-semibold text-gold-700 mb-2">
+                                <span class="bg-gold-100 px-2 py-0.5 rounded border border-gold-300">Teaching 4 • Adab & Character</span>
+                                <a href="https://youtube.com/shorts/fLwq-IQq_0I" target="_blank" class="text-emerald-800 hover:underline flex items-center gap-1">
+                                    <i class="fa-brands fa-youtube text-red-600"></i> Watch Short
+                                </a>
+                            </div>
+                            <h4 class="font-header font-bold text-emerald-950 text-base mb-1" contenteditable="true">
+                                The Beauty of Spiritual Conduct
+                            </h4>
+                            <p class="font-arabic text-lg text-emerald-900 font-bold mb-2 text-right" contenteditable="true" dir="rtl">
+                                « الدِّينُ كُلُّهُ خُلُقٌ، فَمَنْ زَادَ عَلَيْكَ فِي الْخُلُقِ زَادَ عَلَيْكَ فِي الدِّينِ »
+                            </p>
+                            <p class="font-serif text-xs text-gray-700 leading-relaxed mb-3" contenteditable="true">
+                                "Spiritual growth without Adab is like a tree without fruit. Treat every human being with humility, patience, and warmth. True Tasawwuf is noble character in action."
+                            </p>
+                        </div>
+                        <div class="pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-serif">
+                            <span>Key Takeaway: Noble Character</span>
+                            <span class="text-emerald-800 font-semibold">Shaykh Muhammad al-Yaqoubi</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center pt-6">
+                    <button onclick="addTeachingCard()" class="no-print px-4 py-2 bg-emerald-800 hover:bg-emerald-700 text-white rounded text-xs font-semibold shadow transition inline-flex items-center gap-1.5">
+                        <i class="fa-solid fa-plus text-gold-400"></i>
+                        <span>Add Custom Teaching Entry</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script>
+        // Full Data Repository for All Sacred Qasidas & Salat al-Yaqoutiya
+        const qasidasData = {
+            janin: {
+                titleAr: "جَنِينُ القُلُوبِ",
+                titleEn: "LONGING OF HEARTS (FULL 38 COUPLETS)",
+                subtitle: "On the Noble Birthday Anniversary of the Prophet ﷺ",
+                author: "Composed by Sayyid Shaykh Muhammad al-Yaqoubi",
+                verses: [
+                    { num: 1, sadr: "الهُدَى وَالكَمَالُ فِي سُنَنِكْ", aruz: "وَالتَّقَى وَالرَّشَادُ فِي سَنَتِكْ", trans: "Guidance and perfection spring from your sunnas, <br> Righteousness and wisdom stem from your path." },
+                    { num: 2, sadr: "يا كَرِيمًا لَهُ العَطَاءُ سَجَايَا", aruz: "نَحْنُ غَرْقَى وَاللهِ فِي مِنَنِكْ", trans: "O noble one, generosity is your nature, <br> By Allah, we are drowned in your favours." },
+                    { num: 3, sadr: "كُلُّ حُسْنٍ وَحِكْمَةٍ وَصَوَابٍ", aruz: "قَدْ تَجَلَّى لِلخَلْقِ مِنْ حَسَنِكْ", trans: "Every aspect of beauty, wisdom and right, <br> Has been revealed to humanity from your goodness." },
+                    { num: 4, sadr: "كُلُّ فَضْلٍ وَرِفْعَةٍ وَسَنَاءِ", aruz: "قَدْ تَدَلَّى لِلنَّاسِ مِنْ قُنَنِكْ", trans: "Every virtue, honour, and loftiness, <br> Has descended upon people from your heights." },
+                    { num: 5, sadr: "كُلُّ عَصْرٍ وَحِقْبَةٍ وَزَمَانٍ", aruz: "يَسْتَمِدُّ الفَخَارَ مِنْ زَمَنِكْ", trans: "Every era, epoch and time, <br> Derives its pride from your time." },
+                    { num: 6, sadr: "يَا رَسُولَ الوَرَى إِلَيْكَ قَصَدْنَا", aruz: "وَأَنَخْنَا الرَّكَابَ فِي فَنَنِكْ", trans: "O Messenger of God, we have turned to you, <br> And have parked under the shade of the oasis of your guidance." },
+                    { num: 7, sadr: "وَرَكِبْنَا بَحْرَ المَحَبَّةِ دَهْرًا", aruz: "وَرَجَوْنَا النَّجَاةَ فِي سُفْنِكْ", trans: "We've sailed the sea of love for ages, <br> And hope for salvation on your ships." },
+                    { num: 8, sadr: "فَتَكَرَّمْ بِنَظْرَةٍ لِمُحِبٍّ", aruz: "رُوحُهُ فِي الغَرَامِ مِنْ رُهُنِكْ", trans: "So, graciously look upon a lover, <br> Whose soul is held captive by your love." },
+                    { num: 9, sadr: "لَمْ يَزَلْ حَيْثُمَا اسْتَقَرَّ غَرِيبًا", aruz: "لَمْ يَجِدْ مَسْكَنًا سِوَى سَكَنِكْ", trans: "Wherever he resides, he's a stranger, <br> Finding no home except in your abode." },
+                    { num: 10, sadr: "عَقْلُهُ غَابَ فِي صِفَاتِكَ شَوْقًا", aruz: "قَلْبُهُ قَدْ أَقَامَ فِي وَطَنِكْ", trans: "His mind is lost in contemplation of you, <br> His heart resides in your land." },
+                    { num: 11, sadr: "آهِ لَوْ كَانَ صَاحِبًا وَظَهِيرًا", aruz: "لَكَ أَنَّى حَلَلْتَ فِي مُدُنِكْ", trans: "O would that he be a supporter <br> And a helper to you wherever you stay." },
+                    { num: 12, sadr: "أَوْ غُلَامًا يَصُبُّ مَاءَ وُضُوءٍ", aruz: "لَكَ أَنَّى قَصَدْتَ فِي ظَعَنِكْ", trans: "Or a young servant pouring water, <br> For your ablution wherever you travel." },
+                    { num: 13, sadr: "أَوْ غَمَامًا قَدْ يَدْرَأُ الشَّمْسَ يَوْمًا", aruz: "عِنْدَ حَرِّ الهَجِيرِ عَنْ بَدَنِكْ", trans: "Or a cloud shading you from the sun, <br> On a hot day, protecting your body." },
+                    { num: 14, sadr: "أَوْ سِوَاكًا سَقَيْتَهُ مِنْكَ شَهْدًا", aruz: "ثُمَّ حَوَّلْتَهُ إِلَى أُذُنِكْ", trans: "Or a siwāk that once touched your honey-sweet saliva, <br> Honoured by being held on your ear." },
+                    { num: 15, sadr: "أَوْ لِحَافًا بِهِ تَدَثَّرْتَ لَيْلًا", aruz: "أَوْ فِرَاشًا آوَاكَ فِي وَسَنِكْ", trans: "Or a duvet that you wrapped yourself in at night, <br> Or a mattress to which you resort for your sleep." },
+                    { num: 16, sadr: "يَا إِمَامًا لِلأَنْبِيَاءِ جَمِيعًا", aruz: "أَنْتَ حَيٌّ تُصَانُ فِي كَفَنِكْ", trans: "O Imam of all the Prophets, <br> You're alive, preserved in your grave." },
+                    { num: 17, sadr: "سَامِعٌ لِلصَّلَاةِ مِنْ كُلِّ صَبٍّ", aruz: "وَتَرُدُّ السَّلَامَ فِي عَلَنِكْ", trans: "You hear the prayers of every devotee, <br> And respond to greetings loudly." },
+                    { num: 18, sadr: "لَيْسَ مَا أَنْتَ فِيهِ قَبْرًا وَلَكِنْ", aruz: "جَنَّةٌ حُوِّلَتْ إِلَى جَنَنِكْ", trans: "The place where you are now is not a grave, <br> It is the Garden that moved to be in its place." },
+                    { num: 19, sadr: "أَفْضَلُ الخَلْقِ، سَيِّدُ النَّاسِ طُرًّا", aruz: "زَمْزَمِيٌّ، وَالعَزْمُ مِنْ مُنَنِكْ", trans: "You're the best of creation, the master of all people, <br> You were born near Zamzam, with determination that reveals your strength." },
+                    { num: 20, sadr: "نَاصِحٌ مُشْفِقٌ، رَؤُوفٌ رَحِيمٌ", aruz: "أَرْيَحِيٌّ، وَالحِلْمُ مِنْ مِهَنِكْ", trans: "A sincere adviser, kind, gentle and compassionate, <br> Magnanimous, while forbearance is one of your inherent virtues." },
+                    { num: 21, sadr: "صَابِرٌ صَادِقٌ، مُنِيبٌ مُجِيبٌ", aruz: "وَشَكُورٌ لِلَّهِ فِي حَزَنِكْ", trans: "Patient, truthful, repentant and responsive, <br> Grateful to Allah in times of difficulties." },
+                    { num: 22, sadr: "مُصْطَفًى مُجْتَبًى، أَمِينٌ مَكِينٌ", aruz: "سَابِقٌ، وَالوَفَاءُ مِنْ سُنَنِكْ", trans: "Chosen, selected, trustworthy and steadfast, <br> Always ahead, while loyalty is one of your unchanging qualities." },
+                    { num: 23, sadr: "بَطَلٌ بَاسِلٌ، جَرِيءٌ نَجِيدٌ", aruz: "مُقْدِمٌ، وَالثَّبَاتُ مِنْ مُكَنِكْ", trans: "A hero, brave, courageous and the fastest rescuer, <br> Fearless, while firmness is one of your strongholds." },
+                    { num: 24, sadr: "أَشْجَعُ النَّاسِ فِي الحُرُوبِ إِذَا صُلْتَ", aruz: "وَأَهْدَى الهُدَاةِ فِي هُدَنِكْ", trans: "You are the bravest of all people at war, <br> Yet the calmest at times of truce." },
+                    { num: 25, sadr: "أَعْلَمُ العَالَمِينَ، وَالعِلْمُ بَحْرٌ", aruz: "قَدْ سَقَتْهُ السَّمَاءُ مِنْ هُتُنِكْ", trans: "You are the most knowledgeable of all; knowledge is an ocean, <br> That is filled from the water of your heavy rains." },
+                    { num: 26, sadr: "أَفْصَحُ العُرْبِ، إِنْ تَكَلَّمْتَ دَانُوا", aruz: "لِبَلِيغِ الكَلَامِ مِنْ لَسَنِكْ", trans: "You are the most eloquent of the Arabs, <br> When you speak, people acknowledge your eloquence." },
+                    { num: 27, sadr: "أَنْتَ فِي العِلْمِ وَالبَيَانِ فَرِيدٌ", aruz: "وَالوَرَى عَالَةٌ عَلَى فَطَنِكْ", trans: "You're at an unparalleled unique level of knowledge and eloquence, <br> Mankind is indubitably dependent on your intelligence." },
+                    { num: 28, sadr: "النَّبِيُّ الأُمِّيُّ، عَلَّمَكَ اللهُ", aruz: "تَعَالَى وَزَادَ فِي مِنَنِكْ", trans: "You are the unlettered Prophet, Allah Almighty taught you, <br> And bestowed upon you immeasurable favours." },
+                    { num: 29, sadr: "شِدْتَ لِلْعَدْلِ وَالحَضَارَةِ مَجْدًا", aruz: "وَبَنَيْتَ الإِسْلَامَ مِنْ لَبِنِكْ", trans: "You built the foundation of justice and civilisation, <br> And constructed Islam with your bricks." },
+                    { num: 30, sadr: "يَا شَفِيعَ الأَنَامِ أَنْتَ المُرَجَّى", aruz: "فَاعْفُ فَضْلًا عَنْ ذَنْبِ مُرْتَهَنِكْ", trans: "O intercessor for humanity, you're our hope, <br> Please pardon this servant, bound by sin's chains." },
+                    { num: 31, sadr: "وَاحْبُهُ مِنْ نَدَى يَدَيْكِ وِصَالًا", aruz: "وَنَوَالًا تَخْتَارُ مِنْ عِيَنِكْ", trans: "And grant him, out of your generosity, a connection, <br> And a gift you choose from the best of what you have." },
+                    { num: 32, sadr: "زُرْهُ يَوْمًا وَلَوْ بِطَيْفِ خَيَالٍ", aruz: "فَهُوَ عَانٍ فِي القَيْدِ مِنْ شَجَنِكْ", trans: "Visit him one day, even by a vision, <br> As he is a captive, enchained by his love for you." },
+                    { num: 33, sadr: "فَأَجَابَ الحَبِيبُ: أَبْشِرْ فَإِنِّي", aruz: "مُنْجِدٌ حَامِلٌ عَلَى مِحَنِكْ", trans: "The beloved One replied, 'Rejoice, <br> For I am your succor, and I will defeat your tribulations." },
+                    { num: 34, sadr: "لَكَ مِنِّي شَفَاعَةٌ وَضَمَانٌ", aruz: "وَأَمَانٌ يُنْجِيكَ مِنْ فِتَنِكْ", trans: "You have my intercession and guarantee <br> A pledge to protect you from all trials." },
+                    { num: 35, sadr: "فَأَعِنِّي عَلَيْكَ بِالصَّوْمِ وَارْكَعْ", aruz: "فَعَسَانِي آتِيكَ فِي وَسَنِكْ'", trans: "So help me, for your sake, by fasting and bowing, <br> So that I may come to you in your slumber.'" },
+                    { num: 36, sadr: "فَعَلَيْكَ الصَّلَاةُ تَهْمِي سِجَامًا", aruz: "عَابِقَاتٍ بِالنَّدِّ فِي فَنَنِكْ", trans: "May abundant blessings shower you unceasingly, <br> Fragrant with musk from your oasis." },
+                    { num: 37, sadr: "وَعَلَى صَحْبِكَ الهُدَاةِ جَمِيعًا", aruz: "وَعَلَى آلِكَ الكِرَامِ وَخَتَنِكْ", trans: "And upon your guiding companions, all, <br> And upon your noble family and son-in-law." },
+                    { num: 38, sadr: "وَسَلَامٌ تُهْدِيهِ مِنَّا قُلُوبٌ", aruz: "سَائِرَاتٌ عَلَى هُدَى سَنَنِكْ", trans: "With a greeting of peace gifted from our hearts, <br> Which are firmly following the guidance of your path." }
+                ]
+            },
+            shifa: {
+                titleAr: "شِفَاءُ القُلُوبِ فِي صَلَاةِ وَسَلَامِ المَحْبُوبِ",
+                titleEn: "SHIFA AL-QULUB (HEALING OF HEARTS)",
+                subtitle: "Prophetic Salutation Ode for Inner Restoration",
+                author: "Composed by Sayyid Shaykh Muhammad al-Yaqoubi",
+                verses: [
+                    { num: 1, sadr: "صَلَاةٌ وَسَلَامٌ وَطِيبُ طِيَبٍ", aruz: "عَلَى المَاحِي القَرِيبِ حَبِيبِ القُلُوبِ", trans: "Blessings, peace, and the finest fragrance upon the Effacer of darkness, <br> The near one, the Beloved of all hearts." },
+                    { num: 2, sadr: "شِفَاءُ القُلُوبِ وَنُورُ الصُّدُورِ", aruz: "وَبَدْرُ الْبُدُورِ شَفِيعُ الذُّنُوبِ", trans: "The healing of hearts, the light of breasts, <br> The full moon of moons, the intercessor for sins." },
+                    { num: 3, sadr: "أَيَا مُصْطَفَى المَجْدِ أَنْتَ المُرَجَّى", aruz: "لِكُلِّ كَرْبٍ وَهَمٍّ وَصُعُوبِ", trans: "O Chosen One of glory, you are our hope <br> In every affliction, sorrow, and hardship." },
+                    { num: 4, sadr: "عَلَيْكَ الصَّلَاةُ تُزِيلُ العَنَاءَ", aruz: "وَتَمْحُو الذُّنُوبَ وَتُجْلِي الكُرُوبَ", trans: "May blessings upon you remove all suffering, <br> Wipe away sins, and dispel all distress." }
+                ]
+            },
+            yaqoutiya: {
+                titleAr: "الصَّلَاةُ اليَاقُوتِيَّةُ",
+                titleEn: "AS-SALAT UL-YAQOUTIYA (THE RESPLENDENT SAPPHIRE)",
+                subtitle: "Recited 3x Morning & Evening for Visual Experience of the Prophet ﷺ",
+                author: "By Imam Muhammad ibn Mas'ud al-Fasi al-Hasani",
+                verses: [
+                    { num: 1, sadr: "إِنَّ اللهَ وَمَلَائِكَتَهُ يُصَلُّونَ عَلَى النَّبِيِّ", aruz: "يَا أَيُّهَا الَّذِينَ آمَنُوا صَلُّوا عَلَيْهِ وَسَلِّمُوا تَسْلِيمًا", trans: "Indeed, Allah and His angels send blessings upon the Prophet. <br> O you who believe, send blessings upon him and salute him with peace." },
+                    { num: 2, sadr: "اَللهُمَّ صَلِّ وَسَلِّمْ عَلَى مَنْ جَعَلْتَهُ سَبَبًا", aruz: "لِانْشِقَاقِ أَسْرَارِكَ الإِلَهِيَّةِ", trans: "O Allah, send blessings and peace upon the one whom You made the cause <br> For the unfolding of Your Divine Secrets," },
+                    { num: 3, sadr: "وَانْفِلَاقِ أَنْوَارِكَ الرَّحْمَانِيَّةِ", aruz: "فَصَارَ نَائِبًا عَنِ الحَضْرَةِ العَلِيَّةِ", trans: "And the radiance of Your Merciful Lights, <br> So that he became the representative of the Sublime Presence," },
+                    { num: 4, sadr: "وَإِمَامًا لِلْحَضَرَاتِ الإِمَامِيَّةِ", aruz: "وَوَاسِطَةً بَيْنَكَ وَبَيْنَ عِبَادِكَ", trans: "And the leader of all spiritual leaderships, <br> And the intermediary between You and Your servants." }
+                ]
+            },
+            madh_shadhili: {
+                titleAr: "فِي مَدْحِ القُطْبِ الأَكْبَرِ أَبِي الحَسَنِ الشَّاذِلِي",
+                titleEn: "THE QUTB OF ALL QUTBS (IN PRAISE OF IMAM AL-SHADHILI)",
+                subtitle: "Ode to the Grand Spiritual Master and Pole of the Path",
+                author: "Shadhili Heritage Ode",
+                verses: [
+                    { num: 1, sadr: "يَا غَوْثَ زَمَانِهِ أَبَا الحَسَنِ", aruz: "يَا سَيِّدًا صَفَا لَهُ الزَّمَنُ", trans: "O Succour of his age, Abū al-Hasan! <br> O Master for whom time became serene!" },
+                    { num: 2, sadr: "سَقَيْتَنَا مِنْ كَأْسِ العِرْفَانِ", aruz: "شَرَابًا هَنِيئًا طَابَ بِهِ السَّكَنُ", trans: "You slaked our thirst with the cup of Gnosis, <br> A wholesome drink that sweetened our abode." },
+                    { num: 3, sadr: "فِي سِلْسِلَةِ النُّورِ قَدْ سَرَيْتَ", aruz: "وَفِي حَضْرَةِ القُدْسِ لَكَ الوَطَنُ", trans: "Along the chain of light you have traveled, <br> And in the Divine Presence is your true homeland." }
+                ]
+            },
+            ibrahim: {
+                titleAr: "فِي مَدْحِ الشَّيْخِ إِبْرَاهِيمَ اليَعْقُوبِي",
+                titleEn: "IN PRAISE OF SHAYKH IBRAHIM AL-YAQOUBI",
+                subtitle: "Alhamdulillah al-Qadim - In Honor of the Great Master of Damascus",
+                author: "Composed in Honor of Sayyid Shaykh Ibrahim",
+                verses: [
+                    { num: 1, sadr: "الْحَمْدُ لِلَّهِ القَدِيمِ الأَوَّلِ", aruz: "عَلَى نَوَالٍ وَعَطَاءٍ أَجْزَلِ", trans: "Praise be to Allah, the Eternal, the First, <br> For His gifts and most abundant generosity." },
+                    { num: 2, sadr: "ثُمَّ الصَّلَاةُ لِلنَّبِيِّ المُرْسَلِ", aruz: "وَآلِهِ وَصَحْبِهِ وَالمُعْتَلِي", trans: "Then blessings upon the Messenger Prophet, <br> And his Family, Companions, and elevated ones." },
+                    { num: 3, sadr: "وَشَيْخِنَا إِبْرَاهِيمَ بَدْرُ المِلَّةِ", aruz: "مَنَارُ عِلْمٍ وَشِفَاءُ العِلَّةِ", trans: "And our Shaykh Ibrahim, full moon of the community, <br> Lighthouse of knowledge and cure for spiritual illness." }
+                ]
+            },
+            dirqawi: {
+                titleAr: "فِي مَدْحِ الإِمَامِ العَرَبِيِّ الدَّرْقَاوِي",
+                titleEn: "IN PRAISE OF IMAM AL-DIRQAWI",
+                subtitle: "Reviver of the Shadhili Golden Path in North Africa",
+                author: "Classical Shadhili Ode Collection",
+                verses: [
+                    { num: 1, sadr: "سَلَامٌ عَلَى القُطْبِ الدَّرْقَاوِيِّ وَالِيَنَا", aruz: "مَنْ أَحْيَا طَرِيقَ الشَّاذِلِيِّ بِسِرِّنَا", trans: "Peace be upon the Pole al-Darqawi, our protector, <br> Who revived the Shadhili path through our sacred secret." },
+                    { num: 2, sadr: "مَنَارُ الهُدَى فِي كُلِّ أَرْضٍ وَمَشْهَدٍ", aruz: "وَيَهْدِي القُلُوبَ نَحْوَ حَضْرَةِ رَبِّنَا", trans: "Lighthouse of guidance in every land and gathering, <br> Guiding hearts toward the Presence of our Lord." }
+                ]
+            },
+            anthem: {
+                titleAr: "إِنَّمَا المُؤْمِنُونَ إِخْوَةٌ - أُنْشُودَةُ الأُخُوَّةِ",
+                titleEn: "BROTHERS FOR ALL (THE ANTHEM)",
+                subtitle: "Universal Prophetic Song of Brotherhood & Union",
+                author: "Sacred Choral Poetry",
+                verses: [
+                    { num: 1, sadr: "إِنَّمَا المُؤْمِنُونَ فِي الأَرْضِ إِخْوَة", aruz: "تَجْمَعُ الحُبَّ وَالهُدَى وَالفُتُوَّة", trans: "Indeed the believers on earth are brothers, <br> United by love, guidance, and noble chivalry." },
+                    { num: 2, sadr: "نَبْنِي صُرُوحَ المَجْدِ بِالصِّدْقِ دَائِمًا", aruz: "وَنَنْشُرُ النُّورَ وَالخَيْرَ وَالقُوَّة", trans: "We build the towers of glory with constant sincerity, <br> Spreading light, goodness, and spiritual strength." }
+                ]
+            },
+            tamassak: {
+                titleAr: "تَمَسَّكْ بِحُبِّ الشَّاذِلِيَّةِ",
+                titleEn: "LOVE THE SHĀDHILĪS (TAMASSAK)",
+                subtitle: "Exhortation to Cleave to the Shadhili Mastership",
+                author: "Classical Shadhili Spiritual Poem",
+                verses: [
+                    { num: 1, sadr: "تَمَسَّكْ بِحُبِّ الشَّاذِلِيَّةِ كُنْ بِهِ", aruz: "مُحِبًّا لَهُمْ فَالْحُبُّ يَبْنِي المَفَاخِرَا", trans: "Hold fast to love of the Shādhilīs, and be therewith <br> A lover of them, for love builds true glory!" },
+                    { num: 2, sadr: "هُمُ القَوْمُ لاَ يَشْقَى بِهِمْ مَنْ يَلُوذُ بِهِمْ", aruz: "وَيَنَالُونَ فِي الدَّارَيْنِ مَجْدًا وَمَفْخَرَا", trans: "They are the people through whom none who seeks refuge suffers, <br> And in both abodes they attain grandeur and honor." }
+                ]
+            },
+            adab: {
+                titleAr: "قَصِيدَةُ آدَابِ الطَّرِيقَةِ",
+                titleEn: "ETIQUETTES OF THE WAY",
+                subtitle: "Counsel on Conduct for the Spiritual Seeker (Murid)",
+                author: "Gems from the Masters of Spiritual Development",
+                verses: [
+                    { num: 1, sadr: "اِصْحَبْ خَبِيرًا بَاحِثًا وَمُحَقِّقًا", aruz: "يَهْدِيكَ نَحْوَ الحَقِّ جَلَّ وَأَشْرَقَا", trans: "Accompany an expert, searching and verified master, <br> Who guides you toward the Truth, Supreme and Resplendent." },
+                    { num: 2, sadr: "وَاحْفَظْ وِدَادَ الشَّيْخِ فِي كُلِّ لَحْظَةٍ", aruz: "لِتَغْنَمَ أَنْوَارًا وَفَتْحًا مُحَقَّقَا", trans: "And guard your devotion to the Shaykh at every moment, <br> That you may gain lights and certain spiritual opening." }
+                ]
+            }
+        };
+
+        // Tab Switcher Function
+        function switchTab(tab) {
+            const wirdContainer = document.getElementById('container-wird');
+            const silsilaContainer = document.getElementById('container-silsila');
+            const poemContainer = document.getElementById('container-poem');
+            const teachingsContainer = document.getElementById('container-teachings');
+
+            const tabWird = document.getElementById('tab-wird');
+            const tabSilsila = document.getElementById('tab-silsila');
+            const tabPoem = document.getElementById('tab-poem');
+            const tabTeachings = document.getElementById('tab-teachings');
+
+            // Hide all
+            wirdContainer.classList.add('hidden');
+            silsilaContainer.classList.add('hidden');
+            poemContainer.classList.add('hidden');
+            teachingsContainer.classList.add('hidden');
+
+            tabWird.className = "px-3 py-1.5 rounded-md font-medium text-gray-300 hover:text-white transition";
+            tabSilsila.className = "px-3 py-1.5 rounded-md font-medium text-gray-300 hover:text-white transition";
+            tabPoem.className = "px-3 py-1.5 rounded-md font-medium text-gray-300 hover:text-white transition";
+            tabTeachings.className = "px-3 py-1.5 rounded-md font-medium text-gray-300 hover:text-white transition";
+
+            if (tab === 'wird') {
+                wirdContainer.classList.remove('hidden');
+                tabWird.className = "px-3 py-1.5 rounded-md font-medium text-white bg-emerald-800 border border-gold-500/50 shadow transition";
+            } else if (tab === 'silsila') {
+                silsilaContainer.classList.remove('hidden');
+                tabSilsila.className = "px-3 py-1.5 rounded-md font-medium text-white bg-emerald-800 border border-gold-500/50 shadow transition";
+            } else if (tab === 'poem') {
+                poemContainer.classList.remove('hidden');
+                tabPoem.className = "px-3 py-1.5 rounded-md font-medium text-white bg-emerald-800 border border-gold-500/50 shadow transition";
+                loadQasidaContent(document.getElementById('qasida-selector').value || 'janin');
+            } else if (tab === 'teachings') {
+                teachingsContainer.classList.remove('hidden');
+                tabTeachings.className = "px-3 py-1.5 rounded-md font-medium text-white bg-emerald-800 border border-gold-500/50 shadow transition";
+            }
+        }
+
+        // Dynamic Qasida Content Loader
+        function loadQasidaContent(qasidaKey) {
+            const data = qasidasData[qasidaKey] || qasidasData['janin'];
+            
+            document.getElementById('qasida-title-ar').innerText = data.titleAr;
+            document.getElementById('qasida-title-en').innerText = data.titleEn;
+            document.getElementById('qasida-subtitle').innerText = data.subtitle;
+            document.getElementById('qasida-author').innerText = data.author;
+
+            const listContainer = document.getElementById('poem-verses-list');
+            listContainer.innerHTML = '';
+
+            data.verses.forEach(v => {
+                const card = document.createElement('div');
+                card.className = "poem-verse-card border-b border-gray-200 pb-4";
+                card.innerHTML = `
+                    <div class="text-center text-[10px] font-header font-bold text-gold-700 tracking-widest uppercase mb-2">
+                        — COUPLET ${v.num} —
+                    </div>
+                    <div class="verse-grid font-arabic text-xl text-emerald-950 font-bold mb-2" dir="rtl">
+                        <div class="text-right" contenteditable="true">${v.sadr}</div>
+                        <div class="text-gold-500 text-sm px-2">۞</div>
+                        <div class="text-left" contenteditable="true">${v.aruz}</div>
+                    </div>
+                    <div class="font-serif italic text-xs text-gray-700 text-center" contenteditable="true">
+                        ${v.trans}
+                    </div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        // Toggle Edit Mode Highlighting
+        let editActive = true;
+        function toggleEditMode() {
+            editActive = !editActive;
+            const btnText = document.getElementById('edit-mode-text');
+            const btn = document.getElementById('edit-toggle-btn');
+            
+            if (editActive) {
+                document.body.classList.add('edit-mode');
+                btnText.innerText = "Editing Active";
+                btn.className = "px-3 py-1.5 bg-gold-600 hover:bg-gold-500 text-gray-950 font-semibold rounded shadow transition flex items-center gap-1.5";
+            } else {
+                document.body.classList.remove('edit-mode');
+                btnText.innerText = "Preview Mode";
+                btn.className = "px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded shadow transition flex items-center gap-1.5";
+            }
+        }
+
+        // Change Arabic Font Size dynamically
+        function changeArabicSize(val) {
+            const elements = document.querySelectorAll('.font-arabic');
+            elements.forEach(el => {
+                el.style.fontSize = val + 'px';
+            });
+            document.getElementById('arabic-size-label').innerText = val + 'px';
+        }
+
+        // Theme Switcher
+        function changeTheme(themeClass) {
+            document.body.classList.remove('theme-emerald', 'theme-parchment', 'theme-obsidian');
+            document.body.classList.add(themeClass);
+        }
+
+        // Filter Teachings by Category
+        function filterTeachings(cat) {
+            const cards = document.querySelectorAll('.teaching-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Add New Litany Step
+        function addNewStep(containerId) {
+            const container = document.getElementById(containerId);
+            const stepCount = container.children.length + 6;
+            const card = document.createElement('div');
+            card.className = "wird-step-card border-b border-gray-200 pb-5 relative group";
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <span class="inline-block bg-emerald-900 text-gold-300 text-[10px] font-header font-bold px-2.5 py-0.5 rounded" contenteditable="true">
+                        CUSTOM STEP ${stepCount}
+                    </span>
+                    <span class="text-xs font-semibold text-gold-700 bg-gold-100 px-2 py-0.5 rounded border border-gold-300" contenteditable="true">
+                        RECITE ONCE [ 1x ]
+                    </span>
+                </div>
+                <div class="font-arabic text-right text-emerald-950 font-bold mb-2 leading-loose text-2xl" contenteditable="true" dir="rtl">
+                    أَدْخِلِ النَّصَّ الْعَرَبِيَّ هُنَا
+                </div>
+                <div class="font-sans font-bold text-xs text-gray-900 tracking-wide mb-1" contenteditable="true">
+                    ENTER TRANSLITERATION HERE
+                </div>
+                <div class="font-serif italic text-xs text-gray-600" contenteditable="true">
+                    Enter English translation here...
+                </div>
+            `;
+            container.appendChild(card);
+        }
+
+        // Add New Qasida Couplet / Bayt
+        function addPoemVerse() {
+            const container = document.getElementById('poem-verses-list');
+            const verseCount = container.children.length + 1;
+            const card = document.createElement('div');
+            card.className = "poem-verse-card border-b border-gray-200 pb-4";
+            card.innerHTML = `
+                <div class="text-center text-[10px] font-header font-bold text-gold-700 tracking-widest uppercase mb-2">
+                    — COUPLET ${verseCount} —
+                </div>
+                <div class="verse-grid font-arabic text-xl text-emerald-950 font-bold mb-2" dir="rtl">
+                    <div class="text-right" contenteditable="true">الشَّطْرُ الأَوَّلُ هُنَا</div>
+                    <div class="text-gold-500 text-sm px-2">۞</div>
+                    <div class="text-left" contenteditable="true">الشَّطْرُ الثَّانِي هُنَا</div>
+                </div>
+                <div class="font-serif italic text-xs text-gray-700 text-center" contenteditable="true">
+                    Translation for line one <br> Translation for line two
+                </div>
+            `;
+            container.appendChild(card);
+        }
+
+        // Add Custom Teaching Entry Card
+        function addTeachingCard() {
+            const grid = document.getElementById('teachings-grid');
+            const count = grid.children.length + 1;
+            const card = document.createElement('div');
+            card.className = "teaching-card bg-white p-4 rounded-lg border border-gold-500/30 shadow-sm flex flex-col justify-between";
+            card.dataset.category = "dhikr";
+            card.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between text-[10px] uppercase font-header font-semibold text-gold-700 mb-2">
+                        <span class="bg-gold-100 px-2 py-0.5 rounded border border-gold-300">Teaching ${count} • Custom Note</span>
+                        <span class="text-emerald-800 font-semibold"><i class="fa-solid fa-gem text-gold-500"></i> New Gem</span>
+                    </div>
+                    <h4 class="font-header font-bold text-emerald-950 text-base mb-1" contenteditable="true">
+                        Custom Teaching Title
+                    </h4>
+                    <p class="font-arabic text-lg text-emerald-900 font-bold mb-2 text-right" contenteditable="true" dir="rtl">
+                        « أَدْخِلِ الْحِكْمَةَ بِالْعَرَبِيَّةِ هُنَا »
+                    </p>
+                    <p class="font-serif text-xs text-gray-700 leading-relaxed mb-3" contenteditable="true">
+                        "Enter the English explanation or transcript quote here..."
+                    </p>
+                </div>
+                <div class="pt-2 border-t border-gray-100 flex items-center justify-between text-[10px] text-gray-500 font-serif">
+                    <span>Key Takeaway: Reflection</span>
+                    <span class="text-emerald-800 font-semibold">Shaykh Muhammad al-Yaqoubi</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        }
+
+        // Trigger PDF Print
+        function triggerPrint() {
+            const wasEditing = editActive;
+            if (wasEditing) toggleEditMode();
+            
+            setTimeout(() => {
+                window.print();
+                if (wasEditing) toggleEditMode();
+            }, 300);
+        }
+
+        // Initializer on Page Load
+        window.onload = function() {
+            loadQasidaContent('janin');
+        };
+    </script>
+</body>
+</html>
